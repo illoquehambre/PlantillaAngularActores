@@ -1,0 +1,47 @@
+<mat-card class="example-card" style="height: auto">
+  <mat-card-title-group>
+    <mat-card-title>{{ data.filmInfo.title }}</mat-card-title>
+    <mat-card-subtitle>
+
+    </mat-card-subtitle>
+  </mat-card-title-group>
+  <mat-card-content fxLayout="row">
+    <img fxFlex="30" mat-card-xl-image [src]="showImg(data.filmInfo.poster_path)"
+      onerror="this.onerror = null; this.src='https://i1.wp.com/media.giphy.com/media/8L0Pky6C83SzkzU55a/source.gif?w=525&ssl=1'" />
+
+
+    <div fxFlex="60" fxLayout="column" fxLayoutAlign="left" style="padding: 1%;">
+      <div fxLayout="row" fxLayoutAlign="left" class="align">
+        <mat-icon aria-hidden="false" aria-label="Star" fontIcon="theaters"></mat-icon>Géneros:
+      </div>
+      <ul fxLayout="row" fxLayoutAlign="space-around" >
+        <li *ngFor="let genre of data.filmInfo.genres">{{genre.name}}</li>
+      </ul>
+
+      <div class="align">
+
+        <mat-icon aria-hidden="false" aria-label="Star" fontIcon="star"></mat-icon>
+
+        <div>Valoración: {{data.filmInfo.vote_average}}/10 </div>
+      </div>
+      <p class="align">
+        <mat-icon aria-hidden="false" aria-label="Star" fontIcon="hourglass_top"></mat-icon>Runtime:
+        {{data.filmInfo.runtime}} minutes
+      </p>
+      <p class="align">
+        <mat-icon aria-hidden="false" aria-label="Star" fontIcon="title"></mat-icon>Original Title:
+        {{data.filmInfo.original_title}}
+      </p>
+      <p  >
+        <span class="negrita">Sinopsis:</span> {{data.filmInfo.overview}}
+      </p>
+
+
+
+
+
+
+    </div>
+
+  </mat-card-content>
+</mat-card>
