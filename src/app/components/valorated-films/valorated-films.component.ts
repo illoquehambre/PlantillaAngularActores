@@ -7,11 +7,11 @@ import { environment } from 'src/environments/environment';
 import { FilmDetailsComponent } from '../film-details/film-details.component';
 
 @Component({
-  selector: 'app-popular-film',
-  templateUrl: './popular-film.component.html',
-  styleUrls: ['./popular-film.component.css']
+  selector: 'app-valorated-films',
+  templateUrl: './valorated-films.component.html',
+  styleUrls: ['./valorated-films.component.css']
 })
-export class PopularFilmComponent implements OnInit {
+export class ValoratedFilmsComponent implements OnInit {
 
   filmList: Film[] = []
   filmSelected: FilmDetailsResponse = {} as FilmDetailsResponse
@@ -27,7 +27,7 @@ export class PopularFilmComponent implements OnInit {
     this.getFilmPage(1);
   }
   getFilmPage(page:number){
-    this.filmService.getFilms(page).subscribe(resp =>{
+    this.filmService.getValoratedFilms(page).subscribe(resp =>{
       this.filmList = resp.results;
       this.numPages =resp.total_pages;
       this.actualPage=page;
@@ -56,5 +56,6 @@ getFilmInfo(film: Film) {
       });
     });
   }
+
 
 }

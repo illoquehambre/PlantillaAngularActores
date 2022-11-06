@@ -11,13 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { PopularFilmComponent } from './components/popular-film/popular-film.component';
 import { FilmDetailsComponent } from './components/film-details/film-details.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ValoratedFilmsComponent } from './components/valorated-films/valorated-films.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PopularFilmComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    ValoratedFilmsComponent
   ],
   imports: [
     BrowserModule,

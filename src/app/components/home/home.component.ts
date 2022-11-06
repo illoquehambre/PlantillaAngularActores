@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateSessionDto } from 'src/app/modules/dto/create-session.dto';
 import { DeleteSessionDto } from 'src/app/modules/dto/delete-session.dto';
+import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,20 +13,26 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent implements OnInit {
   reqToken = '';
   approved = false;
-  constructor(private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute, private accountService: AccountService) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
+     
     this.route.queryParams.subscribe((qParams) => {
       const ap = qParams['approved'];
       const rToken = qParams['request_token'];
       this.approved = ap == 'true' ? true : false;
 
+      debugger
       if (this.approved) {
         let session = new CreateSessionDto();
         session.request_token = rToken;
         this.authService.createSession(session).subscribe((resp) => {
           localStorage.setItem('session_id', resp.session_id);
           console.log('Session id: ' + resp.session_id);
+          this.accountService.getDetails(resp.session_id).subscribe((response)=>{
+            localStorage.setItem('account_id',  JSON.stringify(response.id));
+            console.log('Account id: ' + response.id);
+          })
         });
       } else {
         if(localStorage.getItem('session_id')!=null){
@@ -33,6 +40,10 @@ export class HomeComponent implements OnInit {
           this.approved=true;
         }
       }
+      
+    
+        
+      
     });
   }
 
@@ -46,6 +57,7 @@ export class HomeComponent implements OnInit {
   
   logout() {
     let deleteSessionDto = new DeleteSessionDto();
+    
     if (localStorage.getItem('session_id') != null) {
       deleteSessionDto.session_id = localStorage.getItem('session_id')!;
       this.authService.deleteSession(deleteSessionDto).subscribe((resp) => {

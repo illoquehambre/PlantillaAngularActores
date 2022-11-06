@@ -22,5 +22,9 @@ export class FilmsService {
       `${environment.API_BASE_URL}/movie/${film.id}?api_key=${environment.api_key}&language=en-US`
     );
   }
-  
+  getValoratedFilms(page: number): Observable<FilmResponse>{
+    return this.httpClient.get<FilmResponse>(
+      `${environment.API_BASE_URL}/account/${localStorage.getItem('account_id')}/rated/movies?api_key=${environment.api_key}&language=en-US&session_id=${localStorage.getItem('session_id')}&sort_by=created_at.asc&${page}`
+    );
+  }
 }

@@ -1,0 +1,45 @@
+
+<home></home>
+
+<div class="flex">
+    <button *ngIf="actualPage>2"(click)="getFilmPage(1)">
+      <mat-icon aria-hidden="false" aria-label="Begin" fontIcon="keyboard_double_arrow_left"></mat-icon>
+    </button>
+      <button *ngIf="actualPage>1"(click)="getFilmPage(actualPage-1)">
+        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="arrow_back_ios"></mat-icon>
+      </button>
+      
+   
+    <div>
+      
+      {{actualPage}}
+    </div>
+       
+    <button *ngIf="actualPage<numPages" (click)="getFilmPage(actualPage+1)">
+      <mat-icon aria-hidden="false" aria-label="Forward" fontIcon="arrow_forward_ios"></mat-icon>
+    </button>
+  </div>
+  <div class="container">
+    <mat-card class="example-card" *ngFor="let Film of filmList">
+      <mat-card-title-group>
+        <img
+          mat-card-xl-image
+          [src]="showImg(Film.poster_path)"
+          onerror="this.onerror = null; this.src='https://i1.wp.com/media.giphy.com/media/8L0Pky6C83SzkzU55a/source.gif?w=525&ssl=1'"
+        />
+      </mat-card-title-group>
+      <mat-card-content>
+       <p>{{ Film.title }}</p> 
+        
+       <div class="align"><div><mat-icon aria-hidden="false" aria-label="Star" fontIcon="star"></mat-icon></div><div>Valoración: {{Film.vote_average}}/10 </div> </div>
+        
+
+        
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button (click)="getFilmInfo(Film)">+Info</button>
+        
+      </mat-card-actions>
+    </mat-card>  
+  </div>
+  

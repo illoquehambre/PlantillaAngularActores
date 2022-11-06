@@ -1,44 +1,27 @@
-
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
   </div>
-  
+
   <div fxLayout="row" fxLayoutAlign="space-between center">
 
-  
-  <button
-    mat-icon-button
-    
-    aria-label="Listado pelis"
-    [routerLink]="['/popularFilms']"
-  >
-  <span>POPULAR</span>
-  </button>
-  <button
-    *ngIf="!approved"
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-    (click)="requestToken()"
-  >
-    <mat-icon>login</mat-icon>
-  </button>
-  <button
-  (click)="logout()"
-    *ngIf="approved"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>logout</mat-icon>
-  </button>
-</div>
+    <button mat-icon-button aria-label="Listado pelis" [routerLink]="['/valoratedFilms']">
+      <span>VALORATED</span>
+    </button>
+
+    <button mat-icon-button aria-label="Listado pelis" [routerLink]="['/popularFilms']">
+      <span>POPULAR</span>
+    </button>
+    <button *ngIf="!approved" mat-icon-button class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon" (click)="requestToken()">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button (click)="logout()" *ngIf="approved" mat-icon-button class="example-icon"
+      aria-label="Example icon-button with share icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
