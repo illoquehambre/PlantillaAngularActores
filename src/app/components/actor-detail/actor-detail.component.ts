@@ -1,7 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { ActorDetailResponse } from 'src/app/interfaces/actor-detail.interface';
 import { DialogData } from 'src/app/interfaces/actor-dialog.interface';
 import { Actor } from 'src/app/interfaces/actor.interface';
+import { Cast } from 'src/app/interfaces/movie-credits.interface';
+import { ActorService } from 'src/app/services/actor.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -12,12 +15,31 @@ import { environment } from 'src/environments/environment';
 })
 export class ActorDetailComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
-  actorList: Actor[] = [];
+  constructor(private route : ActivatedRoute, private actorService: ActorService) { }
+  actorId: string;
+  actor: ActorDetailResponse;
+  actorMovies: Cast[] = []
 
   ngOnInit(): void {
+    this.route.params.subscribe(res =>{
+      this.actorId = res['id'];
+    })
+    this.getActorDetail(this.actorId);
+    this.getMovies(this.actorId);
   }
-  getImageUrl(poster: Actor){
+  getImageUrl(poster: ActorDetailResponse){
     return `${environment.posterPath}/w500/${poster.profile_path}`
+  }
+  getActorDetail(id : string){
+    this.actorService.getActorDetailById(id).subscribe(res =>{
+      this.actor = res;
+    })
+
+  }
+  getMovies(actorId : string){
+    this.actorService.getActorMovie(actorId).subscribe(res =>{
+      this.actorMovies = res.cast;
+    })
+
   }
 }

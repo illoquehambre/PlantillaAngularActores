@@ -1,27 +1,169 @@
-<mat-toolbar>
- <span>Actores Populares</span>
- <span class="spacer"></span>
- <button mat-icon-button (click)="requestToken()" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-   <mat-icon>favorite</mat-icon>
- </button>
-</mat-toolbar>
 
-<button mat-raised-button (click)="getPage(page - 1)">
-  <mat-icon aria-hidden="false">navigate_before</mat-icon>
-</button>
-<button mat-raised-button>{{page}}</button>
-<button mat-raised-button (click)="getPage(page + 1)">
-  <mat-icon aria-hidden="false">navigate_next</mat-icon>
-</button>
+<div
+class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+[ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+<div class="rounded-t mb-0 px-4 py-3 border-0">
+  <div class="flex flex-wrap items-center">
+    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+      <h3
+        class="font-semibold text-lg"
+        [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+      >
+        Actores Populares
+      </h3>
+    </div>
+    <div class="py-2">
+      <nav class="block">
+        <ul class="flex pl-0 rounded list-none flex-wrap">
+          <li>
+            <button (click)="getPage(page - 1)" href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-red-500 bg-white text-red-500">
+              <i class="fas fa-chevron-left -ml-px"></i>
+            </button>
+          </li>
+          <li>
+            <button href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-red-500 text-red-500 bg-white">
+              {{page}}
+            </button>
+          </li>
 
-<div style="display:flex;">
-<mat-card *ngFor="let actor of actorList">
-  <img mat-card-lg-image [src]="getImageUrl(actor)" onerror="this.src='https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif'" alt = "Actor"/>
-  <mat-card-content>
-    <h2>{{ actor.name }}</h2>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="getActorDetail(actor)">Detalles</button>
-  </mat-card-actions>
-</mat-card>
+          <li>
+            <button (click)="getPage(page + 1)" href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-red-500 bg-white text-red-500">
+              <i class="fas fa-chevron-right -mr-px"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="block w-full overflow-x-auto">
+  <!-- Projects table -->
+  <table class="items-center w-full bg-transparent border-collapse">
+    <thead>
+      <tr>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+          Actor
+        </th>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+
+        </th>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+          Popularidad
+        </th>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+
+        </th>
+
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+
+        </th>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        >
+          Detalles
+        </th>
+        <th
+          class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+          [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          "
+        ></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let actor of actorList">
+      <tr>
+        <th
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+        >
+          <img
+            [src]="getImageUrl(actor)" onerror="this.src='https://bitslog.files.wordpress.com/2013/01/unknown-person1.gif'"
+            class="h-12 w-12 bg-white rounded-full border"
+            alt="..."
+          />
+          <span
+            class="ml-3 font-bold"
+            [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'"
+          >
+            {{actor.name}}
+          </span>
+        </th>
+        <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+        >
+
+        </td>
+        <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+        >
+          <i class="fas mr-2"></i>{{actor.popularity}}
+        </td>
+        <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+        >
+          <div class="flex">
+
+          </div>
+        </td>
+        <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+        >
+        <td
+        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+      >
+      <button [routerLink]="actor.id" href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-red-500 bg-white text-red-500">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>      </td>
+        <td></td>
+        <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+        >
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
 </div>
