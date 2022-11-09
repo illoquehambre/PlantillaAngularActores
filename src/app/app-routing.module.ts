@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ActorDetailComponent } from "./components/actor-detail/actor-detail.component";
 import { ActorListComponent } from "./components/actor-list/actor-list.component";
+import { FilmDetailsComponent } from "./components/film-details/film-details.component";
 import { MoviefavComponent } from "./components/moviefav/moviefav.component";
 import { PopularFilmsComponent } from "./components/popular-films/popular-films.component";
 
@@ -34,6 +35,7 @@ const routes: Routes = [
     children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "dashboard/:id", component: ActorDetailComponent },
+      { path: "popularMovie/:id", component: FilmDetailsComponent},
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },

@@ -53,6 +53,7 @@ import { ActorDetailComponent } from "./components/actor-detail/actor-detail.com
 import { MoviefavComponent } from './components/moviefav/moviefav.component';
 import { FavMoviesViewComponent } from "./views/admin/favmoviesview/favmoviesview.component";
 import { PopularFilmsComponent } from './components/popular-films/popular-films.component';
+import { FilmDetailsComponent } from './components/film-details/film-details.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { PopularFilmsComponent } from './components/popular-films/popular-films.
     MoviefavComponent,
     FavMoviesViewComponent,
     PopularFilmsComponent,
+    FilmDetailsComponent,
 
 
 

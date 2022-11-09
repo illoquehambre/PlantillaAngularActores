@@ -16,8 +16,8 @@ import { environment } from 'src/environments/environment';
 export class ActorDetailComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private actorService: ActorService) { }
-  actorId: string;
-  actor: ActorDetailResponse;
+  actorId: string = {} as string;
+  actor: ActorDetailResponse = {} as ActorDetailResponse;
   actorMovies: Cast[] = []
 
   ngOnInit(): void {
