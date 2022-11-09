@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { ActorDetailComponent } from "./components/actor-detail/actor-detail.component";
 import { ActorListComponent } from "./components/actor-list/actor-list.component";
 import { FilmDetailsComponent } from "./components/film-details/film-details.component";
+import { FilmsValoratedComponent } from "./components/films-valorated/films-valorated.component";
 import { MoviefavComponent } from "./components/moviefav/moviefav.component";
 import { PopularFilmsComponent } from "./components/popular-films/popular-films.component";
 
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: "dashboard", component: DashboardComponent },
       { path: "dashboard/:id", component: ActorDetailComponent },
       { path: "popularMovie/:id", component: FilmDetailsComponent},
+      { path: "ratedMovie/:id", component: FilmDetailsComponent},
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
@@ -43,6 +45,7 @@ const routes: Routes = [
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
       { path: "favmovie", component: FavMoviesViewComponent},
       { path: "popularMovie", component: PopularFilmsComponent},
+      { path: "ratedMovie", component: FilmsValoratedComponent},
     ],
   },
   // auth views
