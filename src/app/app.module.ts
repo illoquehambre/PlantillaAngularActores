@@ -52,6 +52,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ActorDetailComponent } from "./components/actor-detail/actor-detail.component";
 import { MoviefavComponent } from './components/moviefav/moviefav.component';
 import { FavMoviesViewComponent } from "./views/admin/favmoviesview/favmoviesview.component";
+import { PopularFilmsComponent } from './components/popular-films/popular-films.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { FavMoviesViewComponent } from "./views/admin/favmoviesview/favmoviesvie
     ActorDetailComponent,
     MoviefavComponent,
     FavMoviesViewComponent,
+    PopularFilmsComponent,
 
 
 

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { ActorDetailComponent } from "./components/actor-detail/actor-detail.component";
 import { ActorListComponent } from "./components/actor-list/actor-list.component";
 import { MoviefavComponent } from "./components/moviefav/moviefav.component";
+import { PopularFilmsComponent } from "./components/popular-films/popular-films.component";
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: "actors", component: ActorListComponent},
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
       { path: "favmovie", component: FavMoviesViewComponent},
+      { path: "popularMovie", component: PopularFilmsComponent},
     ],
   },
   // auth views
