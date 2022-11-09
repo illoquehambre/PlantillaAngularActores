@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SidebarComponent implements OnInit {
   collapseShow = "hidden";
+  session_id= localStorage.getItem("session_id");
   constructor() {}
 
   ngOnInit() {}

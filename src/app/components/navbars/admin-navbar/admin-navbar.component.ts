@@ -12,7 +12,7 @@ export class AdminNavbarComponent implements OnInit {
 
   reqToken = '';
   approved = false;
-  sessionId : string;
+  sessionId : string = {} as string;
 
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 

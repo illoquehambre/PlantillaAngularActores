@@ -20,5 +20,5 @@ export interface Gravatar {
 }
 
 export interface Tmdb {
-  avatar_path: null;
+  avatar_path: string;
 }

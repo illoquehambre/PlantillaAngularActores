@@ -13,16 +13,16 @@ export class IndexNavbarComponent implements OnInit {
   navbarOpen = false;
   reqToken = '';
   approved = false;
-  sessionId : string;
+ 
   username = '';
-  avatar : string;
+  avatar : string= {} as string;
 
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.sessionId=localStorage.getItem('session_Id')
-    if (this.sessionId != null){
-      this.authService.getAccountDetail(this.sessionId).subscribe(res => {
+    
+    if (localStorage.getItem('session_Id') != null){
+      this.authService.getAccountDetail().subscribe(res => {
         this.username = res.username;
         this.avatar = `https://www.themoviedb.org/t/p/w32_and_h32_face/${res.avatar.tmdb.avatar_path}`
       })

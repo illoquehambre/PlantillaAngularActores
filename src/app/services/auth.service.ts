@@ -40,8 +40,9 @@ export class AuthService {
       }
     );
   }
-  getAccountDetail(session: string): Observable<AccountdetailResponse>{
-    return this.http.get<AccountdetailResponse>(`${environment.apiBaseUrl}/account?session_id=${session}&${environment.apiKey}`)
+  getAccountDetail(): Observable<AccountdetailResponse>{
+    debugger
+    return this.http.get<AccountdetailResponse>(`${environment.apiBaseUrl}/account?session_id=${localStorage.getItem('session_id')}&${environment.apiKey}`)
 
   }
 

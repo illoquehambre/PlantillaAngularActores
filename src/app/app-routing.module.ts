@@ -38,6 +38,7 @@ const routes: Routes = [
       { path: "dashboard/:id", component: ActorDetailComponent },
       { path: "popularMovie/:id", component: FilmDetailsComponent},
       { path: "ratedMovie/:id", component: FilmDetailsComponent},
+      { path: "favmovie/:id", component: FilmDetailsComponent},
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
