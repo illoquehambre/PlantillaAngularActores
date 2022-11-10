@@ -36,7 +36,7 @@ export class IndexNavbarComponent implements OnInit {
     this.authService.createRequest().subscribe((res) => {
       this.reqToken = res.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/actors`
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=https://plantillaactores.web.app/actors`
     })
   }
   logout() {

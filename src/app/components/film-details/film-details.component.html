@@ -72,16 +72,16 @@
                 class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase"
               >
                 <i
-                  class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"
+                  class="fas fa-star mr-2 text-lg text-blueGray-400"
                 ></i>
-                {{filmSelected.popularity}}/10
+                {{filmSelected.vote_average}}/10
               </div>
               <div class="mb-2 text-blueGray-600 mt-10">
                 <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
                 {{filmSelected.overview}}
               </div>
               <div class="mb-2 text-blueGray-600">
-                <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                <i class="fas fa-hourglass mr-2 text-lg text-blueGray-400"></i>
                 {{filmSelected.runtime}} minutes
               </div>
             </div>
@@ -89,7 +89,7 @@
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-9/12 px-4">
                   <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                    {{filmSelected.revenue}}$
+                    Racaudación: {{filmSelected.revenue}}$
                   </p>
   
                 </div>
